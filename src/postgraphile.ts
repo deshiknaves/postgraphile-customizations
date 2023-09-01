@@ -1,3 +1,4 @@
+import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector'
 import { postgraphile as createPostgraphile } from 'postgraphile'
 
 export const postgraphile = createPostgraphile(
@@ -6,6 +7,7 @@ export const postgraphile = createPostgraphile(
   },
   'public',
   {
+    appendPlugins: [PgSimplifyInflectorPlugin],
     watchPg: true,
     graphiql: true,
     enhanceGraphiql: true,

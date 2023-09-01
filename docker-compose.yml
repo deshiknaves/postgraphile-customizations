@@ -15,9 +15,12 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   bookshelf:
-    build: .
+    build:
+      dockerfile: Dockerfile.local
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/bookshelf?schema=public
+    volumes:
+      - ./src:/app/src
     ports:
       - '3000:3000'
     networks:
